@@ -2,12 +2,20 @@
 {% load staticfiles %}
 
 {% block js %}
+<script src="{% static "js/room_list.js" %}"></script>
 {% endblock %}
 
 {% block css %}
 {% endblock %}
 
 {% block content %}
+<h1>部屋一覧</h1>
+
 <div id="room-list">
+  <ul>
+    <li v-repeat="room: rooms">
+      <a href="/rooms/[[ room.slug ]]/">[[ room.name ]]</a>
+    </li>
+  </ul>
 </div>
 {% endblock %}
