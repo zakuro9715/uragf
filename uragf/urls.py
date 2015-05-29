@@ -22,4 +22,5 @@ urlpatterns = [
                            namespace='rest_framework')),
     url(r'^rooms/', include('rooms.urls')),
     url(r'^posts/', include('posts.urls')),
+    url(r'^users/', include('accounts.urls')),
 ]
