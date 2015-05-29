@@ -1,7 +1,7 @@
 from django.conf.urls import url
 
-from posts.views import PostList
+from . import views
 
 urlpatterns = [
-    url(r'^(?P<room_id>\d+)/posts/', PostList.as_view()),
+    url(r'^(?P<pk>\d+)/posts/$', views.PostList.as_view()),
 ]
