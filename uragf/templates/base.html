@@ -9,7 +9,16 @@
     </title>
   </head>
   <body>
-    {% block content %}{% endblock %}
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">対偶SNS</a>
+        </div>
+      </div>
+    </nav>
+    <div class="container"> 
+      {% block content %}{% endblock %}
+    </div>
 
     <script src="{% static "js/superagent.js" %}"></script>
     <script src="{% static "js/bootstrap.js" %}"></script>
