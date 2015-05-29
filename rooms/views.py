@@ -20,3 +20,8 @@ class PostList(ListCreateAPIView, RoomAPIMixin):
 
     def get_queryset(self):
         return Post.objects.filter(room=self.get_room()).all()
+
+    def perform_create(self, serializer):
+        post = Post(**serializer.validated_data)
+        post.room = self.get_room()
+        post.save()
