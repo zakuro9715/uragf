@@ -1,4 +1,5 @@
 from rest_framework import status, exceptions
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from rest_framework.generics import (
     GenericAPIView, ListCreateAPIView, ListAPIView,
@@ -11,6 +12,7 @@ from posts.serializers import PostSerializer
 from accounts.serializers import UserSerializer
 
 from .models import Room
+from .permissions import JoiningUserOnly
 
 
 class RoomAPIMixin:
@@ -22,6 +24,10 @@ class RoomAPIMixin:
 
 class PostList(ListCreateAPIView, RoomAPIMixin):
     serializer_class = PostSerializer
+    permission_classes = (
+        IsAuthenticatedOrReadOnly,
+        JoiningUserOnly
+    )
 
     def get_queryset(self):
         return Post.objects.filter(room=self.get_room()).all()
