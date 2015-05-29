@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <!doctype html>
 <html>
   <head>
@@ -8,6 +10,7 @@
   <body>
     {% block content %}{% endblock %}
 
+    <script src="{% static "js/superagent.js" %}"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/0.11.10/vue.min.js"></script>
     {% block js %}
     {% endblock %}
