@@ -40,11 +40,8 @@ class UserList(ListAPIView, RoomAPIMixin):
 class UserJoining(GenericAPIView, RoomAPIMixin):
     serializer_class = UserSerializer
 
-    def has_joined(self, user, room):
-        return room.users.filter(pk=user.pk).exists()
-
     def get(self, request, *args, **kwargs):
-        if self.has_joined(request.user, self.get_room()):
+        if self.get_room().is_user_joining(request.user):
             return Response(status=status.HTTP_204_NO_CONTENT)
         raise exceptions.NotFound()
 
@@ -53,7 +50,7 @@ class UserJoining(GenericAPIView, RoomAPIMixin):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     def delete(self, request, *args, **kwargs):
-        if self.has_joined(request.user, self.get_room()):
+        if self.get_room().is_user_joining(request.user):
             self.get_room().users.remove(request.user)
             return Response(status=status.HTTP_204_NO_CONTENT)
         raise exceptions.NotFound()
