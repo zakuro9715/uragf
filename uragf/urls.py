@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^api/rooms/', include('apis.rooms_api.urls')),
     url(r'^api/posts/', include('apis.posts_api.urls')),
     url(r'^api/users/', include('apis.users_api.urls')),
-    
+
     url(r'^accounts/', include('accounts.urls')),
     url(r'^rooms/', include('rooms.urls')),
 ]
