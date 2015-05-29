@@ -8,7 +8,7 @@ from rest_framework.generics import (
 from posts.models import Post
 from posts.serializers import PostSerializer
 
-from accounts.serializers import UserSerializer
+from users.serializers import UserSerializer
 
 from .models import Room
 from .permissions import JoiningUserOnly

@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'accounts',
     'posts',
     'rooms',
+    'users',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -106,7 +107,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-AUTH_USER_MODEL = 'accounts.User'
+AUTH_USER_MODEL = 'users.User'
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 NOSE_ARGS = [
