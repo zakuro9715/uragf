@@ -1,9 +1,3 @@
-from rest_framework.generics import RetrieveUpdateDestroyAPIView
+from django.shortcuts import render
 
-from .models import Post
-from .serializers import PostSerializer
-
-
-class PostDetail(RetrieveUpdateDestroyAPIView):
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
+# Create your views here.

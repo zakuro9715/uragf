@@ -8,15 +8,15 @@ from django.conf import settings
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('rooms', '0001_initial'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
+        ('rooms', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
             name='Post',
             fields=[
-                ('id', models.AutoField(serialize=False, auto_created=True, primary_key=True, verbose_name='ID')),
+                ('id', models.AutoField(primary_key=True, serialize=False, verbose_name='ID', auto_created=True)),
                 ('text', models.TextField()),
                 ('room', models.ForeignKey(to='rooms.Room', related_name='posts')),
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL, related_name='posts')),

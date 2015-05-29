@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^auth/', include('rest_framework.urls',
                            namespace='rest_framework')),
     url(r'^accounts/', include('accounts.urls')),
-    url(r'^rooms/', include('rooms.urls')),
-    url(r'^posts/', include('posts.urls')),
-    url(r'^users/', include('users.urls')),
+    url(r'^api/rooms/', include('apis.rooms_api.urls')),
+    url(r'^api/posts/', include('apis.posts_api.urls')),
+    url(r'^api/users/', include('apis.users_api.urls')),
 ]
