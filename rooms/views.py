@@ -1,5 +1,4 @@
-from rest_framework import status, exceptions
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework import status, exceptions, permissions
 from rest_framework.response import Response
 from rest_framework.generics import (
     GenericAPIView, ListCreateAPIView, ListAPIView,
@@ -25,7 +24,7 @@ class RoomAPIMixin:
 class PostList(ListCreateAPIView, RoomAPIMixin):
     serializer_class = PostSerializer
     permission_classes = (
-        IsAuthenticatedOrReadOnly,
+        permissions.IsAuthenticatedOrReadOnly,
         JoiningUserOnly
     )
 
@@ -45,6 +44,9 @@ class UserList(ListAPIView, RoomAPIMixin):
 
 class UserJoining(GenericAPIView, RoomAPIMixin):
     serializer_class = UserSerializer
+    permission_classes = (
+        permissions.IsAuthenticated,
+    )
 
     def get(self, request, *args, **kwargs):
         if self.get_room().is_user_joining(request.user):
