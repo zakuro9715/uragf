@@ -1,9 +1,11 @@
 from rest_framework.generics import (
-    ListCreateAPIView, get_object_or_404
+    ListCreateAPIView, ListAPIView, get_object_or_404
 )
 
 from posts.models import Post
 from posts.serializers import PostSerializer
+
+from accounts.serializers import UserSerializer
 
 from .models import Room
 
@@ -25,3 +27,10 @@ class PostList(ListCreateAPIView, RoomAPIMixin):
         post = Post(**serializer.validated_data)
         post.room = self.get_room()
         post.save()
+
+
+class UserList(ListAPIView, RoomAPIMixin):
+    serializer_class = UserSerializer
+
+    def get_queryset(self):
+        return self.get_room().users.all()
