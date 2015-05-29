@@ -11,6 +11,7 @@
       roomId: null,
       joining: true,
       posts: [],
+      postText: null,
       baseUrl: '/api/rooms/:id/'
     },
     methods: {
@@ -49,7 +50,26 @@
               load();
             }
           });
-      }
+      },
+      post: function() {
+        $data = this.$data;
+        load = this.load
+        url = this.baseUrl + 'posts/';
+        console.log(this.postText);
+        request
+          .post(url)
+          .send({text: this.postText})
+          .set('X-CSRFTOKEN', $.cookie('csrftoken'))
+          .end(function(err, res) {
+            if (err) {
+              reportError(err.status, JSON.stringify(res.body, null, 2));
+            }
+            else {
+              load();
+              $data.postText = '';
+            }
+          });
+      },
     },
     ready: function() {
       // /rooms/:id/
