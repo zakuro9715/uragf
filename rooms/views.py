@@ -27,9 +27,7 @@ class PostList(ListCreateAPIView, RoomAPIMixin):
         return Post.objects.filter(room=self.get_room()).all()
 
     def perform_create(self, serializer):
-        post = Post(**serializer.validated_data)
-        post.room = self.get_room()
-        post.save()
+        serializer.save(room=self.get_room())
 
 
 class UserList(ListAPIView, RoomAPIMixin):
