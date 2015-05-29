@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+
+class Post(models.Model):
+    text = models.TextField()
+    user = models.ForeignKey('accounts.User', related_name='posts')
+    room = models.ForeignKey('rooms.Room', related_name='posts')
