@@ -30,7 +30,7 @@ class PostList(ListCreateAPIView, RoomAPIMixin):
     )
 
     def perform_create(self, serializer):
-        serializer.save(room=self.get_room())
+        serializer.save(room=self.get_room(), user=self.request.user)
 
     def get_queryset(self):
         filters = {'room': self.get_room()}
