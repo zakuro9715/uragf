@@ -18,7 +18,8 @@ from .permissions import JoiningUserOnly
 class RoomAPIMixin:
     def get_room(self):
         if not hasattr(self, 'room'):
-            self.room = get_object_or_404(Room.objects, pk=self.kwargs['pk'])
+            slug = self.kwargs['slug']
+            self.room = get_object_or_404(Room.objects, slug=slug)
         return self.room
 
 
