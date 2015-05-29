@@ -16,11 +16,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Post',
             fields=[
-                ('id', models.AutoField(serialize=False, verbose_name='ID', auto_created=True, primary_key=True)),
+                ('id', models.AutoField(verbose_name='ID', auto_created=True, primary_key=True, serialize=False)),
                 ('text', models.TextField()),
                 ('date_created', models.DateTimeField(auto_now_add=True)),
-                ('room', models.ForeignKey(to='rooms.Room', related_name='posts')),
-                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL, related_name='posts')),
+                ('room', models.ForeignKey(related_name='posts', to='rooms.Room')),
+                ('user', models.ForeignKey(related_name='posts', to=settings.AUTH_USER_MODEL)),
             ],
+            options={
+                'ordering': ['-date_created'],
+            },
         ),
     ]
