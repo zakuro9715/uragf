@@ -29,11 +29,24 @@ class PostList(ListCreateAPIView, RoomAPIMixin):
         JoiningUserOnly
     )
 
-    def get_queryset(self):
-        return Post.objects.filter(room=self.get_room()).all()
-
     def perform_create(self, serializer):
         serializer.save(room=self.get_room())
+
+    def get_queryset(self):
+        filters = {'room': self.get_room()}
+        from_date = self.get_from_date()
+        if from_date:
+            filters['date_created__gte'] = from_date
+        return Post.objects.filter(**filters).all()
+
+    def get_from_date(self):
+        from django.utils.dateparse import parse_datetime
+        from_str = self.request.GET.get('from', False)
+        if from_str:
+            try:
+                return parse_datetime(from_str)
+            except ValueError:
+                return None
 
 
 class UserList(ListAPIView, RoomAPIMixin):
