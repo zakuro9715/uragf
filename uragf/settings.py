@@ -121,6 +121,6 @@ NOSE_ARGS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS':
-        'rest_framework.pagination.PageNumberPagination',
+        'apis.api_core.paginations.DefaultPagination',
     'PAGE_SIZE': 100
 }
