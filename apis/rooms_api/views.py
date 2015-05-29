@@ -11,6 +11,7 @@ from posts.serializers import PostSerializer
 from users.serializers import UserSerializer
 
 from rooms.models import Room
+from rooms.serializers import RoomSerializer
 
 from .permissions import JoiningUserOnly
 
@@ -21,6 +22,11 @@ class RoomAPIMixin:
             slug = self.kwargs['slug']
             self.room = get_object_or_404(Room.objects, slug=slug)
         return self.room
+
+
+class RoomList(ListAPIView):
+    serializer_class = RoomSerializer
+    queryset = Room.objects.all()
 
 
 class PostList(ListCreateAPIView, RoomAPIMixin):
