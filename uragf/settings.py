@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'apis.rooms_api',
     'apis.users_api',
     'accounts',
+    'home',
     'posts',
     'rooms',
     'users',
