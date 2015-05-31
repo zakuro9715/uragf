@@ -2,7 +2,6 @@ from rest_framework import status, exceptions, permissions
 from rest_framework.response import Response
 from rest_framework.generics import (
     GenericAPIView, ListCreateAPIView, ListAPIView,
-    get_object_or_404,
 )
 
 from posts.models import Post
@@ -12,16 +11,9 @@ from users.serializers import UserSerializer
 
 from rooms.models import Room
 from rooms.serializers import RoomSerializer
+from rooms.views import RoomMixin
 
 from .permissions import JoiningUserOnly
-
-
-class RoomAPIMixin:
-    def get_room(self):
-        if not hasattr(self, 'room'):
-            slug = self.kwargs['slug']
-            self.room = get_object_or_404(Room.objects, slug=slug)
-        return self.room
 
 
 class RoomList(ListAPIView):
@@ -29,7 +21,7 @@ class RoomList(ListAPIView):
     queryset = Room.objects.all()
 
 
-class PostList(ListCreateAPIView, RoomAPIMixin):
+class PostList(ListCreateAPIView, RoomMixin):
     serializer_class = PostSerializer
     permission_classes = (
         permissions.IsAuthenticatedOrReadOnly,
@@ -56,14 +48,14 @@ class PostList(ListCreateAPIView, RoomAPIMixin):
                 return None
 
 
-class UserList(ListAPIView, RoomAPIMixin):
+class UserList(ListAPIView, RoomMixin):
     serializer_class = UserSerializer
 
     def get_queryset(self):
         return self.get_room().users.all()
 
 
-class UserJoining(GenericAPIView, RoomAPIMixin):
+class UserJoining(GenericAPIView, RoomMixin):
     serializer_class = UserSerializer
     permission_classes = (
         permissions.IsAuthenticated,
