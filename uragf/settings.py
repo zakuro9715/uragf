@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_nose',
+    'compressor',
     'rest_framework',
     'apis.api_core',
     'apis.posts_api',
@@ -112,8 +113,16 @@ USE_TZ = True
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
+
 STATIC_URL = '/static/'
 STATIC_ROOT = 'staticfiles'
+
 
 AUTH_USER_MODEL = 'users.User'
 
