@@ -22,6 +22,7 @@ urlpatterns = [
                            namespace='rest_framework')),
     url(r'^api/rooms/', include('apis.rooms_api.urls')),
     url(r'^api/rooms/', include('apis.rooms.room_posts_api.urls')),
+    url(r'^api/rooms/', include('apis.rooms.room_users_api.urls')),
     url(r'^api/rooms/', include('apis.rooms.room_joining_api.urls')),
     url(r'^api/posts/', include('apis.posts_api.urls')),
     url(r'^api/users/', include('apis.users_api.urls')),
