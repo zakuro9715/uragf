@@ -20,7 +20,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^auth/', include('rest_framework.urls',
                            namespace='rest_framework')),
-    url(r'^api/rooms/', include('apis.rooms_api.urls')),
+    url(r'^api/rooms/', include('apis.rooms.rooms_api.urls')),
     url(r'^api/rooms/', include('apis.rooms.room_posts_api.urls')),
     url(r'^api/rooms/', include('apis.rooms.room_users_api.urls')),
     url(r'^api/rooms/', include('apis.rooms.room_joining_api.urls')),

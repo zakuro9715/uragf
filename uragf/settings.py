@@ -40,7 +40,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'apis.api_core',
     'apis.posts_api',
-    'apis.rooms_api',
+    'apis.rooms.rooms_api',
     'apis.rooms.room_posts_api',
     'apis.rooms.room_users_api',
     'apis.rooms.room_joining_api',
