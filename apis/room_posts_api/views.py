@@ -6,7 +6,7 @@ from posts.serializers import PostSerializer
 
 from rooms.views import RoomMixin
 
-from apis.rooms.room_joining_api.permissions import JoiningUserOnly
+from apis.room_joining_api.permissions import JoiningUserOnly
 
 
 class PostList(ListCreateAPIView, RoomMixin):
