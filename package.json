@@ -1,0 +1,14 @@
+{
+  "name": "uragf",
+  "version": "0.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zakuro9715/uragf.git"
+  },
+  "author": "YuZakuro <zakuro@yuzakuro.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zakuro9715/uragf/issues"
+  }
+}
