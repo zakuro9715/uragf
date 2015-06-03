@@ -6,6 +6,7 @@ ENV NODE_VERSION v0.12.4
 RUN  curl -SL http://nodejs.org/dist/$NODE_VERSION/node-$NODE_VERSION-linux-x64.tar.gz \
     | tar xvzC /usr/local --strip-components=1
 
+RUN npm install -g less
 
 COPY requirements.txt /
 RUN pip install -r requirements.txt
