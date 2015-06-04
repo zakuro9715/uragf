@@ -14,4 +14,4 @@ RUN pip install -r requirements.txt
 COPY . /app
 ENV DATABASE_URL sqlite:////app/db.sqlite3
 
-ENTRYPOINT ["python", "/app/manage.py"]
+CMD ["python", "/app/manage.py", "runserver"]
