@@ -12,6 +12,7 @@
     "url": "https://github.com/zakuro9715/uragf/issues"
   },
   "devDependencies": {
+    "glob": "^5.0.10",
     "gulp": "^3.9.0",
     "gulp-less": "^3.0.3",
     "gulp-plumber": "^1.0.1"
