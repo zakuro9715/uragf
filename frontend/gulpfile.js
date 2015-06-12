@@ -13,6 +13,7 @@ var searchApps = function(root) {
 
 var paths = {
   styles: 'styles',
+  css:  'styles/**/*.css',
   less: 'styles/**/*.less',
   dist: 'static',
 };
@@ -26,6 +27,14 @@ gulp.task('less', function() {
   apps.forEach(function(app) {
     gulp.src(path.join(app, paths.less))
       .pipe(lessc(options))
+      .pipe(gulp.dest(path.join(app, paths.dist, paths.styles)));
+  });
+});
+
+gulp.task('css', function() {
+  apps = searchApps();
+  apps.forEach(function(app) {
+    gulp.src(path.join(app, paths.css))
       .pipe(gulp.dest(path.join(app, paths.dist, paths.styles)));
   });
 });
