@@ -38,3 +38,5 @@ gulp.task('css', function() {
       .pipe(gulp.dest(path.join(app, paths.dist, paths.styles)));
   });
 });
+
+gulp.task('styles', ['css', 'less']);
