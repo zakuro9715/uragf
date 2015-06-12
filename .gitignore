@@ -1,3 +1,7 @@
+# ======
+# Python
+# ======
+
 *.pyc
 __pycache__
 
@@ -13,6 +17,11 @@ cover
 *.sqlite3
 staticfiles
 
+# ====
+# node
+# ====
+
+node_modules
 
 ### PyCharm ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
