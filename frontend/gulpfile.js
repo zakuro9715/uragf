@@ -12,7 +12,8 @@ var searchApps = function(root) {
 };
 
 var paths = {
-  less: 'styles/*.less',
+  styles: 'styles',
+  less: 'styles/**/*.less',
   dist: 'static',
 };
 
@@ -20,11 +21,11 @@ var paths = {
 gulp.task('less', function() {
   apps = searchApps();
   options = {
-    paths: apps.map(function(v) { return path.join(v, 'styles') }),
+    paths: apps.map(function(v) { return path.join(v, paths.styles) }),
   }
   apps.forEach(function(app) {
     gulp.src(path.join(app, paths.less))
       .pipe(lessc(options))
-      .pipe(gulp.dest(path.join(app, paths.dist)));
+      .pipe(gulp.dest(path.join(app, paths.dist, paths.styles)));
   });
 });
