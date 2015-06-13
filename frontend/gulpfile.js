@@ -35,3 +35,5 @@ gulp.task('js', function() {
   gulp.src(paths.js)
     .pipe(gulp.dest(path.join(paths.dist, paths.scripts)));
 });
+
+gulp.task('scripts', ['js']);
