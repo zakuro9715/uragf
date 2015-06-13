@@ -8,6 +8,8 @@ var paths = {
   styles: 'styles',
   css:  'styles/**/*.css',
   less: 'styles/**/*.less',
+  scripts: 'scripts',
+  js:  'scripts/**/*.js',
   dist: 'static',
 };
 
@@ -27,3 +29,9 @@ gulp.task('css', function() {
 });
 
 gulp.task('styles', ['css', 'less']);
+
+
+gulp.task('js', function() {
+  gulp.src(paths.js)
+    .pipe(gulp.dest(path.join(paths.dist, paths.scripts)));
+});
