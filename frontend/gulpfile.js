@@ -4,13 +4,6 @@ var plumber = require('gulp-plumber');
 var path = require('path');
 var glob = require('glob');
 
-var searchApps = function(root) {
-  root = root || __dirname;
-  return glob.sync(path.join(root, '/**/__init__.py')).map(function(v) {
-    return path.dirname(v);
-  });
-};
-
 var paths = {
   styles: 'styles',
   css:  'styles/**/*.css',
@@ -20,23 +13,17 @@ var paths = {
 
 
 gulp.task('less', function() {
-  apps = searchApps();
   options = {
-    paths: apps.map(function(v) { return path.join(v, paths.styles) }),
+    paths: paths.styles,
   }
-  apps.forEach(function(app) {
-    gulp.src(path.join(app, paths.less))
-      .pipe(lessc(options))
-      .pipe(gulp.dest(path.join(app, paths.dist, paths.styles)));
-  });
+  gulp.src(paths.less)
+    .pipe(lessc(options))
+    .pipe(gulp.dest(path.join(paths.dist, paths.styles)));
 });
 
 gulp.task('css', function() {
-  apps = searchApps();
-  apps.forEach(function(app) {
-    gulp.src(path.join(app, paths.css))
-      .pipe(gulp.dest(path.join(app, paths.dist, paths.styles)));
-  });
+  gulp.src(paths.css)
+    .pipe(gulp.dest(path.join(paths.dist, paths.styles)));
 });
 
 gulp.task('styles', ['css', 'less']);
