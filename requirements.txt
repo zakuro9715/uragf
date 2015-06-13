@@ -3,7 +3,6 @@ dj-database-url==0.3.0
 dj-static==0.0.6
 Django==1.8.2
 django-appconf==1.0.1
-django-compressor==1.5
 django-filter==0.10.0
 django-nose==1.4
 django-toolbelt==0.0.1

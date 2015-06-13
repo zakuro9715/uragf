@@ -37,7 +37,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_nose',
-    'compressor',
     'rest_framework',
     'apis.api_core',
     'apis.posts_api',
@@ -46,6 +45,7 @@ INSTALLED_APPS = (
     'apis.room_users_api',
     'apis.room_joining_api',
     'apis.users_api',
+    'frontend',
     'accounts',
     'home',
     'posts',
@@ -117,15 +117,10 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
 )
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'staticfiles'
-
-COMPRESS_PRECOMPILERS = (
-    ('text/less', 'lessc {infile} {outfile}'),
-)
 
 
 AUTH_USER_MODEL = 'users.User'
