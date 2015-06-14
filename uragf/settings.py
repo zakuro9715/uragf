@@ -47,7 +47,6 @@ INSTALLED_APPS = (
     'apis.users_api',
     'frontend',
     'accounts',
-    'home',
     'posts',
     'rooms',
     'users',

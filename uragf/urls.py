@@ -29,5 +29,4 @@ urlpatterns = [
 
     url(r'^accounts/', include('accounts.urls')),
     url(r'^', include('frontend.urls')),
-    url(r'^', include('home.urls')),
 ]
