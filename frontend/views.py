@@ -1,4 +1,4 @@
-from django.views.gereric import TemplateView
+from django.views.generic import TemplateView
 
 
 def template(template_name):

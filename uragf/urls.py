@@ -28,6 +28,6 @@ urlpatterns = [
     url(r'^api/users/', include('apis.users_api.urls')),
 
     url(r'^accounts/', include('accounts.urls')),
-    url(r'^rooms/', include('rooms.urls')),
+    url(r'^', include('frontend.urls')),
     url(r'^', include('home.urls')),
 ]
