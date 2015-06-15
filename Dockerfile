@@ -16,4 +16,4 @@ ENV DATABASE_URL sqlite:////app/db.sqlite3
 
 WORKDIR /app
 
-CMD ["python", "/app/manage.py", "runserver"]
+CMD ["python", "/app/manage.py", "runserver", "0.0.0.0:8000"]
