@@ -12,12 +12,16 @@
     "url": "https://github.com/zakuro9715/uragf/issues"
   },
   "devDependencies": {
+    "css-loader": "^0.14.5",
     "glob": "^5.0.10",
     "gulp": "^3.9.0",
     "gulp-less": "^3.0.3",
     "gulp-plumber": "^1.0.1",
     "gulp-webpack": "^1.5.0",
+    "less": "^2.5.1",
+    "less-loader": "^2.2.0",
     "node-libs-browser": "^0.5.2",
+    "style-loader": "^0.12.3",
     "webpack": "^1.9.11"
   }
 }
