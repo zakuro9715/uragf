@@ -18,8 +18,13 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.css$/,  loader: "style-loader!css-loader" },
+      { test: /\.css$/,   loader: "style-loader!css-loader" },
       { test: /\.less$/,  loader: "style-loader!css-loader!less-loader" },
+      { test: /\.woff$/,  loader: "file-loader?prefix=font/" },
+      { test: /\.woff2$/, loader: "file-loader?prefix=font/" },
+      { test: /\.eot$/,   loader: "file-loader?prefix=font/" },
+      { test: /\.ttf$/,   loader: "file-loader?prefix=font/" },
+      { test: /\.svg$/,   loader: "file-loader?prefix=font/" },
     ],
   },
   plugins: [

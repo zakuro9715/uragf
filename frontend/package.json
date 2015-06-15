@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "css-loader": "^0.14.5",
+    "file-loader": "^0.8.4",
     "glob": "^5.0.10",
     "gulp": "^3.9.0",
     "gulp-less": "^3.0.3",
