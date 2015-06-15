@@ -1,4 +1,6 @@
 (function() {
+  require('../../styles/rooms/timeline.less')
+
   var request = window.superagent;
 
   var reportError = function(status, detail) { 
