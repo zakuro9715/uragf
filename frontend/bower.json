@@ -1,3 +1,6 @@
 {
-  "name": "uragf"
+  "name": "uragf",
+  "devDependencies": {
+    "bootstrap": "~3.3.4"
+  }
 }
