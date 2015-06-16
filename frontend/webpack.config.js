@@ -18,6 +18,7 @@ module.exports = {
     alias: {
       'bootstrap.js': 'bootstrap/dist/js/bootstrap.js',
       'bootstrap.css': 'bootstrap/dist/css/bootstrap.css',
+      'jquery-cookie': 'jquery-cookie/jquery.cookie.js',
     },
   },
   plugins: [
@@ -27,12 +28,11 @@ module.exports = {
     new webpack.ProvidePlugin({
       jQuery: "jquery",
       $: "jquery",
-      jquery: "jquery"
     })
   ],
   module: {
     loaders: [
-    { test: /\.css$/,   loader: "style-loader!css-loader" },
+      { test: /\.css$/,   loader: "style-loader!css-loader" },
       { test: /\.less$/,  loader: "style-loader!css-loader!less-loader" },
       { test: /\.woff$/,  loader: "file-loader?prefix=font/" },
       { test: /\.woff2$/, loader: "file-loader?prefix=font/" },

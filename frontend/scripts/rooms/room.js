@@ -1,9 +1,11 @@
 (function() {
   require('../../styles/rooms/timeline.less')
 
+  var $ = require('jquery');
+  var cookie = require('jquery-cookie');
   var request = window.superagent;
 
-  var reportError = function(status, detail) { 
+  var reportError = function(status, detail) {
     alert("エラーだよ\nstatus=" + status + "\n" + detail);
   };
 
@@ -83,7 +85,7 @@
       url = this.baseUrl + 'joining/';
       request
         .get(url)
-        .end(function(err, res) { 
+        .end(function(err, res) {
           if(err) {
             if (err.status == 403) {
               location.href = '/accounts/login/?next=' + location.pathname;
