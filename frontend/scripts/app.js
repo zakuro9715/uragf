@@ -1,4 +1,4 @@
-require('imports?jQuery=jquery!bootstrap.js');
+require('bootstrap.js');
 require('bootstrap.css');
 
 require('../styles/app.css')

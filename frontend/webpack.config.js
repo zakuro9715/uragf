@@ -24,10 +24,15 @@ module.exports = {
     new webpack.ResolverPlugin(
       new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
     ),
+    new webpack.ProvidePlugin({
+      jQuery: "jquery",
+      $: "jquery",
+      jquery: "jquery"
+    })
   ],
   module: {
     loaders: [
-      { test: /\.css$/,   loader: "style-loader!css-loader" },
+    { test: /\.css$/,   loader: "style-loader!css-loader" },
       { test: /\.less$/,  loader: "style-loader!css-loader!less-loader" },
       { test: /\.woff$/,  loader: "file-loader?prefix=font/" },
       { test: /\.woff2$/, loader: "file-loader?prefix=font/" },
