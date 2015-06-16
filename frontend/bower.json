@@ -1,6 +1,7 @@
 {
   "name": "uragf",
   "devDependencies": {
-    "bootstrap": "~3.3.4"
+    "bootstrap": "~3.3.4",
+    "jquery-cookie": "~1.4.1"
   }
 }
