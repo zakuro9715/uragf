@@ -3,7 +3,7 @@
 
   var $ = require('jquery');
   var cookie = require('jquery-cookie');
-  var request = window.superagent;
+  var request = require('superagent');
 
   var reportError = function(status, detail) {
     alert("エラーだよ\nstatus=" + status + "\n" + detail);
