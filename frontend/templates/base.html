@@ -3,7 +3,6 @@
 <!doctype html>
 <html>
   <head>
-    <link href="{% static "styles/vendor/bootstrap.css" %}" rel="stylesheet">
     {% block css %}{% endblock %}
     <title>
       {% block title %}対偶SNS{% endblock %}
@@ -26,11 +25,7 @@
       {% block content %}{% endblock %}
     </div>
 
-    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/0.11.10/vue.min.js"></script>
-    <script src="{% static "scripts/vendor/jquery.cookie.js" %}"></script>
-    <script src="{% static "scripts/vendor/superagent.js" %}"></script>
-    <script src="{% static "scripts/vendor/bootstrap.js" %}"></script>
     <script src="{% static "app.js" %}"></script>
     {% block js %}
     {% endblock %}
