@@ -1,7 +1,8 @@
 {
   "name": "uragf",
-  "devDependencies": {
+  "dependencies": {
     "bootstrap": "~3.3.4",
-    "jquery-cookie": "~1.4.1"
+    "jquery-cookie": "~1.4.1",
+    "vue": "~0.12.1"
   }
 }
