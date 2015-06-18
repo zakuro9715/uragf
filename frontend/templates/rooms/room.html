@@ -10,15 +10,7 @@
       </div>
     </div>
     <div class="timeline">
-      <div>
-        <div v-repeat="post : posts" class="post">
-          <div class="post__header">
-            <span class="post__username">[[ post.user.username ]]</span>
-            <span class="post__date">at [[ post.date_created]]</span>
-          </div>
-          <div class="post__body">[[ post.text]]</div>
-        </div>
-      </div>
+      <post v-repeat="posts"></post>
     </div>
   </div>
   <button v-if="!joining" v-on="click: join" class="btn btn-primary">このルームに参加する</button>

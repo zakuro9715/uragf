@@ -1,5 +1,5 @@
 (function() {
-  require('./timeline.less')
+  require('./timeline.less');
 
   var $       = require('jquery');
   var errors  = require('utils/errors');
@@ -10,6 +10,12 @@
 
   var room = new Vue({
     el: '#room',
+    components: {
+      post: require('components/post.vue'),
+      test: {
+        template: '<p>[[msg]]</p>',
+      }
+    },
     data: {
       roomId: null,
       joining: true,
