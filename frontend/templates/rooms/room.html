@@ -3,24 +3,11 @@
 {% block content %}
 <div id="room">
   <div v-if="joining">
-    <div>
-      <div class="form-group">
-        <textarea v-model="postText" class="form-control"></textarea>
-        <button v-on="click: post" class="btn btn-primary form-control">投稿</button>
-      </div>
-    </div>
+    <post-form roomid="[[roomId]]" on-posted="[[onPosted]]"></post-form>
     <div class="timeline">
-      <div>
-        <div v-repeat="post : posts" class="post">
-          <div class="post__header">
-            <span class="post__username">[[ post.user.username ]]</span>
-            <span class="post__date">at [[ post.date_created]]</span>
-          </div>
-          <div class="post__body">[[ post.text]]</div>
-        </div>
-      </div>
+      <post v-repeat="posts"></post>
     </div>
   </div>
-  <button v-if="!joining" v-on="click: join" class="btn btn-primary">このルームに参加する</button>
+  <join-button v-if="!joining" roomid="[[roomId]]" on-joined="[[onJoined]]"></join-button>
 </div>
 {% endblock %}

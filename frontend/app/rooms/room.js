@@ -1,20 +1,23 @@
 (function() {
-  require('./timeline.less')
+  require('./timeline.less');
 
   var $       = require('jquery');
   var errors  = require('utils/errors');
   var login   = require('utils/login')
-  var cookie  = require('jquery-cookie');
   var request = require('superagent');
   var Vue     = require('vue');
 
   var room = new Vue({
     el: '#room',
+    components: {
+      'post':        require('components/post.vue'),
+      'post-form':   require('components/post-form.vue'),
+      'join-button': require('components/join-button.vue'),
+    },
     data: {
       roomId: null,
       joining: true,
       posts: [],
-      postText: null,
       baseUrl: '/api/rooms/:id/'
     },
     methods: {
@@ -36,40 +39,13 @@
             }
           });
       },
-      join: function() {
-        $data = this.$data;
-        load = this.load
-        url = this.baseUrl + 'joining/';
-        request
-          .put(url)
-          .set('X-CSRFTOKEN', $.cookie('csrftoken'))
-          .end(function(err, res) {
-            if (err) {
-              errors.report(err.status, JSON.stringify(res.body, null, 2));
-            } else {
-              $data.joining = true;
-              load();
-            }
-          });
+      onJoined: function() {
+        this.joining = true;
+        this.load();
       },
-      post: function() {
-        $data = this.$data;
-        load = this.load
-        url = this.baseUrl + 'posts/';
-        console.log(this.postText);
-        request
-          .post(url)
-          .send({text: this.postText})
-          .set('X-CSRFTOKEN', $.cookie('csrftoken'))
-          .end(function(err, res) {
-            if (err) {
-              errors.report(err.status, JSON.stringify(res.body, null, 2));
-            } else {
-              load();
-              $data.postText = '';
-            }
-          });
-      },
+      onPosted: function() {
+        this.load();
+      }
     },
     ready: function() {
       // /rooms/:id/
