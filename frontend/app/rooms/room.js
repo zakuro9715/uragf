@@ -2,6 +2,7 @@
   require('./timeline.less')
 
   var $ = require('jquery');
+  var login = require('utils/login')
   var cookie = require('jquery-cookie');
   var request = require('superagent');
 
@@ -88,7 +89,7 @@
         .end(function(err, res) {
           if(err) {
             if (err.status == 403) {
-              location.href = '/accounts/login/?next=' + location.pathname;
+              login();
             } else if (err.status == 404) {
               $data.joining = false;
             }
