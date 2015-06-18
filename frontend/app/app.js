@@ -1,6 +1,6 @@
 require('bootstrap.js');
 require('bootstrap.css');
 
-require('../styles/app.css')
+require('./app.css')
 
 Vue.config.delimiters = ['[', ']'];
