@@ -16,6 +16,7 @@ module.exports = {
   resolve: {
     root: [
       path.join(__dirname, "bower_components"),
+      path.join(__dirname, 'app'),
     ],
     alias: {
       'bootstrap.js': 'bootstrap/dist/js/bootstrap.js',
