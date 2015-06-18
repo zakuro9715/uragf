@@ -4,9 +4,9 @@ var path = require("path");
 module.exports = {
   entry: {
     app: [
-      './scripts/app.js',
-      './scripts/rooms/room.js',
-      './scripts/rooms/room_list.js',
+      './app/app.js',
+      './app/rooms/room.js',
+      './app/rooms/room_list.js',
     ],
   },
   output: {
@@ -14,7 +14,9 @@ module.exports = {
     filename: '[name].js',
   },
   resolve: {
-    root: [path.join(__dirname, "bower_components")],
+    root: [
+      path.join(__dirname, "bower_components"),
+    ],
     alias: {
       'bootstrap.js': 'bootstrap/dist/js/bootstrap.js',
       'bootstrap.css': 'bootstrap/dist/css/bootstrap.css',

@@ -1,5 +1,5 @@
 (function() {
-  var request = window.superagent;
+  var request = require('superagent');
 
   var reportError = function(status, detail) { 
     alert("エラーだよ\nstatus=" + status + "\n" + detail);

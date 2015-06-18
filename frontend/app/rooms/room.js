@@ -1,5 +1,5 @@
 (function() {
-  require('../../styles/rooms/timeline.less')
+  require('./timeline.less')
 
   var $ = require('jquery');
   var cookie = require('jquery-cookie');
