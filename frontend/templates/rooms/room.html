@@ -3,12 +3,7 @@
 {% block content %}
 <div id="room">
   <div v-if="joining">
-    <div>
-      <div class="form-group">
-        <textarea v-model="postText" class="form-control"></textarea>
-        <button v-on="click: post" class="btn btn-primary form-control">投稿</button>
-      </div>
-    </div>
+    <post-form roomid="[[roomId]]" on-posted="[[onPosted]]"></post-form>
     <div class="timeline">
       <post v-repeat="posts"></post>
     </div>

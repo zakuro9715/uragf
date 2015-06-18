@@ -12,13 +12,13 @@
     el: '#room',
     components: {
       'post':        require('components/post.vue'),
+      'post-form':   require('components/post-form.vue'),
       'join-button': require('components/join-button.vue'),
     },
     data: {
       roomId: null,
       joining: true,
       posts: [],
-      postText: null,
       baseUrl: '/api/rooms/:id/'
     },
     methods: {
@@ -40,27 +40,13 @@
             }
           });
       },
-      post: function() {
-        $data = this.$data;
-        load = this.load
-        url = this.baseUrl + 'posts/';
-        request
-          .post(url)
-          .send({text: this.postText})
-          .set('X-CSRFTOKEN', $.cookie('csrftoken'))
-          .end(function(err, res) {
-            if (err) {
-              errors.report(err.status, JSON.stringify(res.body, null, 2));
-            } else {
-              load();
-              $data.postText = '';
-            }
-          });
-      },
       onJoined: function() {
         this.joining = true;
         this.load();
       },
+      onPosted: function() {
+        this.load();
+      }
     },
     ready: function() {
       // /rooms/:id/
