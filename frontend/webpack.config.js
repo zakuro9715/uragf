@@ -37,6 +37,7 @@ module.exports = {
     loaders: [
       { test: /\.css$/,   loader: "style-loader!css-loader" },
       { test: /\.less$/,  loader: "style-loader!css-loader!less-loader" },
+      { test: /\.vue$/,   loader: "vue-loader" },
       { test: /\.woff$/,  loader: "file-loader?prefix=font/" },
       { test: /\.woff2$/, loader: "file-loader?prefix=font/" },
       { test: /\.eot$/,   loader: "file-loader?prefix=font/" },
