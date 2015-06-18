@@ -11,10 +11,8 @@
   var room = new Vue({
     el: '#room',
     components: {
-      post: require('components/post.vue'),
-      test: {
-        template: '<p>[[msg]]</p>',
-      }
+      'post':        require('components/post.vue'),
+      'join-button': require('components/join-button.vue'),
     },
     data: {
       roomId: null,
@@ -42,27 +40,10 @@
             }
           });
       },
-      join: function() {
-        $data = this.$data;
-        load = this.load
-        url = this.baseUrl + 'joining/';
-        request
-          .put(url)
-          .set('X-CSRFTOKEN', $.cookie('csrftoken'))
-          .end(function(err, res) {
-            if (err) {
-              errors.report(err.status, JSON.stringify(res.body, null, 2));
-            } else {
-              $data.joining = true;
-              load();
-            }
-          });
-      },
       post: function() {
         $data = this.$data;
         load = this.load
         url = this.baseUrl + 'posts/';
-        console.log(this.postText);
         request
           .post(url)
           .send({text: this.postText})
@@ -75,6 +56,10 @@
               $data.postText = '';
             }
           });
+      },
+      onJoined: function() {
+        this.joining = true;
+        this.load();
       },
     },
     ready: function() {

@@ -13,6 +13,6 @@
       <post v-repeat="posts"></post>
     </div>
   </div>
-  <button v-if="!joining" v-on="click: join" class="btn btn-primary">このルームに参加する</button>
+  <join-button v-if="!joining" roomid="[[roomId]]" on-joined="[[onJoined]]"></join-button>
 </div>
 {% endblock %}
