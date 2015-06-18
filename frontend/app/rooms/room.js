@@ -1,10 +1,11 @@
 (function() {
   require('./timeline.less')
 
-  var $ = require('jquery');
-  var login = require('utils/login')
-  var cookie = require('jquery-cookie');
+  var $       = require('jquery');
+  var login   = require('utils/login')
+  var cookie  = require('jquery-cookie');
   var request = require('superagent');
+  var Vue     = require('vue');
 
   var reportError = function(status, detail) {
     alert("エラーだよ\nstatus=" + status + "\n" + detail);

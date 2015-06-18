@@ -1,5 +1,6 @@
 (function() {
   var request = require('superagent');
+  var Vue     = require('vue');
 
   var reportError = function(status, detail) { 
     alert("エラーだよ\nstatus=" + status + "\n" + detail);
