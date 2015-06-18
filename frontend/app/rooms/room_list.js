@@ -1,10 +1,8 @@
 (function() {
   var request = require('superagent');
   var Vue     = require('vue');
+  var errors  = require('utils/errors');
 
-  var reportError = function(status, detail) { 
-    alert("エラーだよ\nstatus=" + status + "\n" + detail);
-  };
 
   var roomList = new Vue({
     el: '#room-list',
@@ -20,9 +18,8 @@
           .get(this.url)
           .end(function(err, res) {
             if (err) {
-              reportError(err.status, JSON.stringify(res.body, null, 2));
-            }
-            else {
+              errors.report(err.status, JSON.stringify(res.body, null, 2));
+            } else {
               $data.rooms = res.body.results;
             }
           });
