@@ -4,7 +4,6 @@
   var $       = require('jquery');
   var errors  = require('utils/errors');
   var login   = require('utils/login')
-  var cookie  = require('jquery-cookie');
   var request = require('superagent');
   var Vue     = require('vue');
 
