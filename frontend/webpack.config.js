@@ -2,15 +2,10 @@ var webpack = require('webpack');
 var path = require("path");
 
 module.exports = {
-  entry: {
-    app: [
-      './app/main.js',
-      './app/rooms/room_list.js',
-    ],
-  },
+  entry: './app/main.js',
   output: {
     path: path.join(__dirname, 'static'),
-    filename: '[name].js',
+    filename: 'app.js',
   },
   resolve: {
     root: [

@@ -25,8 +25,9 @@ module.exports = {
     },
   },
   components: {
-    'home-view': require('views/home.vue'),
-    'room-view': require('views/room.vue'),
+    'home-view':      require('views/home.vue'),
+    'room-view':      require('views/room.vue'),
+    'room-list-view': require('views/room-list.vue'),
   },
 }
 </script>

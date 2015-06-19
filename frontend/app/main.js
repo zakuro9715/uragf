@@ -17,10 +17,12 @@ router.map({
   '/': {
     component: 'home-view',
   },
+  '/rooms/': {
+    component: 'room-list-view',
+  },
   '/rooms/:id/': {
     component: 'room-view',
   },
 });
 
 router.start(app, '#app');
-
