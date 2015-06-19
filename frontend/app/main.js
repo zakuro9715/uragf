@@ -16,7 +16,11 @@ var router = new Router({
 router.map({
   '/': {
     component: 'home-view',
-  }
+  },
+  '/rooms/:id/': {
+    component: 'room-view',
+  },
 });
 
 router.start(app, '#app');
+

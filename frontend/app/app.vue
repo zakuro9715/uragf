@@ -21,10 +21,12 @@ module.exports = {
   data: {
     view: '',
     params: {
+      roomId: '',
     },
   },
   components: {
     'home-view': require('views/home.vue'),
+    'room-view': require('views/room.vue'),
   },
 }
 </script>

@@ -5,7 +5,6 @@ module.exports = {
   entry: {
     app: [
       './app/main.js',
-      './app/rooms/room.js',
       './app/rooms/room_list.js',
     ],
   },
