@@ -1,8 +1,6 @@
 from django.conf.urls import url
-from .views import template as t
+from django.views.generic import TemplateView
 
 urlpatterns = [
-    url(r'^rooms/(?P<slug>[0-9a-zA-Z_-]+)/$', t('rooms/room.html')),
-    url(r'^rooms/$', t('rooms/room_list.html')),
-    url(r'^$', t('home/home.html')),
+    url(r'', TemplateView.as_view(template_name='index.html')),
 ]

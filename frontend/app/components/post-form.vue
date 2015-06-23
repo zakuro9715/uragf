@@ -22,8 +22,10 @@ module.exports = {
       type: Function,
     },
   ],
-  data: {
-    postText: '',
+  data: function() {
+    return{
+      postText: '',
+    }
   },
   computed: {
     url: function() {

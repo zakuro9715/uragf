@@ -27,6 +27,7 @@
     "style-loader": "^0.12.3",
     "superagent": "^1.2.0",
     "vue-loader": "^2.0.1",
+    "vue-router": "git://github.com/vuejs/vue-router.git",
     "webpack": "^1.9.11"
   }
 }
