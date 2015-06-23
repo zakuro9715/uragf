@@ -1,6 +1,6 @@
 from django.conf.urls import url
-from .views import template as t
+from django.views.generic import TemplateView
 
 urlpatterns = [
-    url(r'', t('index.html')),
+    url(r'', TemplateView.as_view(template_name='index.html')),
 ]
