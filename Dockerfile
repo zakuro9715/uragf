@@ -14,6 +14,8 @@ RUN pip install -r requirements.txt
 COPY . /app
 ENV DATABASE_URL sqlite:////app/db.sqlite3
 
+RUN python /app/manage.py migrate
+
 WORKDIR /app
 
 CMD ["python", "/app/manage.py", "runserver", "0.0.0.0:8000"]
